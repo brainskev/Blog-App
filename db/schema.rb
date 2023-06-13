@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_081932) do
     t.bigint "author_id", null: false
     t.bigint "post_id", null: false
     t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
@@ -25,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_081932) do
   create_table "likes", force: :cascade do |t|
     t.bigint "author_id", null: false
     t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_likes_on_author_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
   end
@@ -33,16 +37,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_081932) do
     t.bigint "author_id", null: false
     t.string "title"
     t.text "text"
-    t.integer "comment_counter", default: 0
+    t.integer "comments_counter", default: 0
     t.integer "likes_counter", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "photo"
-    t.integer "bio"
+    t.text "bio"
     t.integer "post_counter", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "comments", "posts"
