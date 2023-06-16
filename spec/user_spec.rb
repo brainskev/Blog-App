@@ -20,6 +20,6 @@ RSpec.describe User, type: :model do
   end
 
   it 'post counter should be three' do
-    expect(subject.recent_three_post.length).to eq 3
+    expect(subject.recent_posts.length).to eq 3
   end
 end
