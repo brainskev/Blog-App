@@ -1,48 +1,43 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :request do
+RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
-    it 'returns http success' do
-      get '/posts/index'
-      expect(response).to have_http_status(:success)
-  describe 'GET #index' do
-    let(:user) { User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.') }
-
+  describe 'GET /users' do
     before do
-      get "/users/#{user.id}/posts"
+      get '/users'
     end
 
-    it 'returns a successful response' do
-      expect(response).to be_successful
+    it 'returns http success' do
+      get '/users/index'
+      expect(response).to have_http_status(:success)
     end
 
-    it 'renders the index template' do
+    it 'renders index template' do
       expect(response).to render_template(:index)
     end
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('List of all posts')
+    it 'includes correct placeholder tag on the response body' do
+      expect(response.body).to include('List of Users')
     end
   end
 
-  describe 'GET #show' do
+  describe 'GET /users/:id' do
     let(:user) { User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.') }
-    let(:post) { user.posts.create(title: 'My Post', text: 'Some content') }
 
     before do
-      get "/users/#{user.id}/posts/#{post.id}"
+      get "/users/#{user.id}"
     end
 
-    it 'returns a successful response' do
+    it 'returns succesfull response' do
       expect(response).to be_successful
     end
 
-    it 'renders the show template' do
+    it 'renders correct template' do
       expect(response).to render_template(:show)
     end
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('Here is a list of posts for a given user')
+    it 'includes correct placeholder tag on the response body' do
+      expect(response.body).to include('specific user')
     end
   end
 end
