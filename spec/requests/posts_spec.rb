@@ -5,6 +5,8 @@ RSpec.describe 'Posts', type: :request do
     it 'returns http success' do
       get '/posts/index'
       expect(response).to have_http_status(:success)
+    end
+  end
   describe 'GET #index' do
     let(:user) { User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.') }
 
