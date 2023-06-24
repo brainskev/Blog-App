@@ -8,8 +8,7 @@ class PostsController < ApplicationController
     @post = Post.where(author_id: params[:user_id], id: params[:id]).first
     @comment = Comment.new
     @like = Like.new
-end
-
+  end
 
   def new
     @post = Post.new
