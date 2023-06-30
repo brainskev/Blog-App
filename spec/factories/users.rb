@@ -34,3 +34,15 @@ FactoryBot.define do
 
       after(:create) do |post, evaluator|
         create_list(:comment, evaluator.comments_count, post:)
+      end
+    end
+  end
+end
+
+FactoryBot.define do
+  factory :comment do
+    text { 'Hi Tom!' }
+    association :author, factory: :user
+    association :post
+  end
+end
