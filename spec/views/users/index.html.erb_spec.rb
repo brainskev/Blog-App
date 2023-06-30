@@ -1,8 +1,8 @@
 require 'rails_helper'
-RSpec.describe 'users/index.html.erb', type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+
 user1 = FactoryBot.create(:user)
 user2 = FactoryBot.create(:user)
+
 RSpec.describe 'users/index.html.erb', type: :feature do
   scenario 'display all usernames' do
     visit '/'
