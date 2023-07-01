@@ -13,9 +13,9 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap"
+/* @import "bootstrap" */
 
-  .devise-container {
+.devise-container {
   font-family: var(--font-family);
   font-size: var(--font-size);
   display: flex;
@@ -29,19 +29,7 @@
   margin: 10% auto 0;
   border-radius: 8px;
   box-shadow: 2px 2px 11px rgba(0, 0, 0, 0.3);
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.links a {
-  color: white;
-  margin-top: -19px;
+  text-align: center; /* Center the text content */
 }
 
 .devise-container input::placeholder {
@@ -55,26 +43,28 @@
 .devise-container input {
   width: 250px;
   display: flex;
-  border: 1px solid white;
+  border: 1px solid rgb(15, 14, 14);
   border-radius: 5px;
   padding: 5px;
   font-size: 1.1rem;
 }
 
-#user_remember_me {
-  width: auto;
-  margin-right: 10px;
-}
-
 .remember-field {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-top: 10px;
+  margin-left: -80px;
 }
 
-.remember-me-field {
-  flex: 1;
+.remember-me-checkbox {
+  margin-right: -110px; /* Adjust the margin as needed */
 }
+
+.remember-me-label {
+  font-size: 1rem;
+  color: black;
+}
+
 
 .actions input {
   border-radius: 5px;
