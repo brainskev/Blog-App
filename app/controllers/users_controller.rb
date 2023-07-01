@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   end
   
   def admin?
-    admin
+    @user.role == 'admin'
   end
 end
