@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   devise_for :users
 
   devise_scope :user do
@@ -11,13 +13,18 @@ Rails.application.routes.draw do
     end
   end
 
-
-  resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+  resources :users, only: %i[index show] do
+    resources :posts do
+      resources :comments
+      resources :likes, only: [:create]
+    end
   end
 
-  resources :posts, only: [:new, :create] do
-    resources :comments, only: [:new, :create]
-    resources :likes, only: [:create]
+  namespace :api do
+    resources :users, only: [:index] do
+      resources :posts, only: [:index] do
+        resources :comments, only: %i[index create]
+      end
+    end
   end
 end
