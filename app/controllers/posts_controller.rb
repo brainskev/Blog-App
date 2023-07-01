@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         if @post.save
-          flash[:sucess] = 'post created successfully!'
+          flash[:notice] = 'Post created successfully!'
           redirect_to user_post_path(current_user, @post)
         else
           flash[:error] = 'post not created!'

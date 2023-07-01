@@ -10,9 +10,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-   <div class="container my-3 py-3">
-  </div>
-    <%= yield %>
+ <body>
+    <div class="container my-3 py-3">
+      </br>
+      <%= render 'partials/alerts' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
