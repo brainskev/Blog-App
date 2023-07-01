@@ -1,4 +1,5 @@
 require 'rails_helper'
+get '/posts'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET #index' do
